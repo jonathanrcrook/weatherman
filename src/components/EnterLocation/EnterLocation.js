@@ -2,6 +2,9 @@ import React, { Component } from "react";
 
 import "./EnterLocation.css";
 
+import {getWeather} from "../../services/weatherService.js";
+
+
 export default class EnterLocation extends Component {
 	constructor( props ) {
 		super( props );
@@ -18,6 +21,8 @@ export default class EnterLocation extends Component {
 
 	handleSubmit( event ) {
 		event.preventDefault();
+
+		getWeather( this.state.location );
 
 		this.setState( { location: "" } );
 	}
